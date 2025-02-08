@@ -1,0 +1,142 @@
+# ==========================
+# 🔹 Geral para projetos Java
+# ==========================
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Arquivos de compilação
+/bin/
+/target/
+/out/
+/build/
+
+# Dependências geradas por ferramentas
+.mvn/
+.gradle/
+!gradle-wrapper.jar
+**/build/
+
+# ==========================
+# 🔹 Logs e relatórios
+# ==========================
+*.log
+*.out
+*.log.*
+logs/
+log/
+hs_err_pid*
+*.pid
+*.seed
+*.state
+
+# ==========================
+# 🔹 Configurações do sistema
+# ==========================
+.DS_Store
+Thumbs.db
+*.sw?
+*.swo
+*.swn
+*.swa
+
+# ==========================
+# 🔹 IDEs e editores
+# ==========================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# ==========================
+# 🔹 Ferramentas de build (Maven e Gradle)
+# ==========================
+# Maven
+.mvn/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+gradle-app.setting
+
+# ==========================
+# 🔹 Banco de Dados
+# ==========================
+*.h2.db
+*.mv.db
+*.sql
+*.sqlite
+*.db
+*.pgsql
+*.sql.gz
+data/
+
+# ==========================
+# 🔹 Arquivos sensíveis
+# ==========================
+# Senhas e chaves de segurança
+*.pem
+*.jks
+*.keystore
+*.pfx
+*.p12
+*.crt
+*.cer
+*.key
+
+# Arquivos de configuração sensíveis
+application.properties
+application.yml
+application.yaml
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# ==========================
+# 🔹 Docker
+# ==========================
+docker-compose.override.yml
+.dockerignore
+Dockerfile
+**/docker-compose.yml
+**/docker-compose.override.yml
+
+# ==========================
+# 🔹 Outros arquivos irrelevantes
+# ==========================
+/tmp/
+/node_modules/
+/vendor/
+/coverage/
+/.idea/
+*.class
+*.bak
+
