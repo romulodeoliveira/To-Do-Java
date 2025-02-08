@@ -1,9 +1,27 @@
 package com.domain.tasks.entities;
 
-import java.time.LocalDateTime;
+import com.domain.shared.entities.Entity;
+import com.domain.shared.utils.ValidationResult;
+import com.domain.shared.utils.ValidatorUtil;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-public class Task {
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Collections;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Task extends Entity {
+    @NotBlank(message = "O título não pode estar vazio")
+    @Size(min = 3, max = 100, message = "O título deve ter entre 3 e 100 caracteres")
     private String title;
+
+    @Size(max = 500, message = "O título deve ter no máximo 500 caracteres")
     private String description;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
@@ -12,10 +30,16 @@ public class Task {
     public Task(
             String title,
             String description) {
+        super();
         this.title = title;
         this.description = description;
-        this.createdDate = LocalDateTime.now();
-        this.isComplete = false;
+        createdDate = LocalDateTime.now();
+        updatedDate = createdDate;
+        isComplete = false;
+    }
+
+    public ValidationResult validate() {
+        return ValidatorUtil.validate(this);
     }
 
     // getters
@@ -42,20 +66,20 @@ public class Task {
     // setters
     private void setTitle(String title) {
         this.title = title;
-        setUpdatedDate();
+        updateTimestamp();
     }
 
     private void setDescription(String description) {
         this.description = description;
-        setUpdatedDate();
+        updateTimestamp();
     }
 
-    private void setUpdatedDate() {
+    private void updateTimestamp() {
         updatedDate = LocalDateTime.now();
     }
 
-    private void setComplete() {
-        isComplete = true;
-        setUpdatedDate();
+    private void setComplete(boolean isComplete) {
+        this.isComplete = isComplete;
+        updateTimestamp();
     }
 }
