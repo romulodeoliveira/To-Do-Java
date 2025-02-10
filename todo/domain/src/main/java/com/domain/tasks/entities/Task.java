@@ -2,8 +2,6 @@ package com.domain.tasks.entities;
 
 import com.domain.identity.entities.User;
 import com.domain.shared.entities.Entity;
-import com.domain.shared.utils.ValidationResult;
-import com.domain.shared.utils.ValidatorUtil;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
