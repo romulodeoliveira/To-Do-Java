@@ -33,9 +33,26 @@ public class Task extends Entity {
         this.user = user;
     }
 
-    public ValidationResult validate() {
-        return ValidatorUtil.validate(this);
+    // functions
+    public void updadeTitle(String title) {
+        this.title = title;
+        updateTimestamp();
     }
+
+    public void updadeDescription(String description) {
+        this.description = description;
+        updateTimestamp();
+    }
+
+    public void setComplete(boolean isComplete) {
+        this.isComplete = isComplete;
+        updateTimestamp();
+    }
+
+    private void updateTimestamp() {
+        updatedDate = LocalDateTime.now();
+    }
+
 
     // getters
     public String getTitle() {
@@ -56,25 +73,5 @@ public class Task extends Entity {
 
     public boolean isComplete() {
         return isComplete;
-    }
-
-    // setters
-    private void setTitle(String title) {
-        this.title = title;
-        updateTimestamp();
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
-        updateTimestamp();
-    }
-
-    private void updateTimestamp() {
-        updatedDate = LocalDateTime.now();
-    }
-
-    private void setComplete(boolean isComplete) {
-        this.isComplete = isComplete;
-        updateTimestamp();
     }
 }
