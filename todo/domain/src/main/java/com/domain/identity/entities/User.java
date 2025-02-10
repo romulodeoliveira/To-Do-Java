@@ -1,6 +1,6 @@
 package com.domain.identity.entities;
 
-import com.domain.identity.valueobjects.Email;
+import com.domain.identity.valueobjects.UserEmail;
 import com.domain.identity.valueobjects.Name;
 import com.domain.shared.entities.Entity;
 
@@ -8,30 +8,30 @@ import java.time.LocalDateTime;
 
 public class User extends Entity {
     private Name name;
-    private Email email;
+    private UserEmail email;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
     public User(
             Name name,
-            Email email,
-            LocalDateTime createdDate,
-            LocalDateTime updatedDate) {
+            UserEmail email) {
         this.name = name;
         this.email = email;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
+        this.createdDate = LocalDateTime.now();
     }
 
     // functions
-
+    public void updateName(Name name) {
+        this.name = name;
+        updatedDate = LocalDateTime.now();
+    }
 
     // getters
     public Name getName() {
         return name;
     }
 
-    public Email getEmail() {
+    public UserEmail getEmail() {
         return email;
     }
 
