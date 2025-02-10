@@ -28,7 +28,6 @@ public class Task extends Entity {
         this.title = title;
         this.description = description;
         createdDate = LocalDateTime.now();
-        updatedDate = createdDate;
         isComplete = false;
         this.user = user;
     }
@@ -52,7 +51,6 @@ public class Task extends Entity {
     private void updateTimestamp() {
         updatedDate = LocalDateTime.now();
     }
-
 
     // getters
     public String getTitle() {
