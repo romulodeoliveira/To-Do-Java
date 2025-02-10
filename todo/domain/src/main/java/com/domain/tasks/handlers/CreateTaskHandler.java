@@ -9,11 +9,12 @@ import com.domain.tasks.commands.outputs.CreateTaskCommandResult;
 import com.domain.tasks.entities.Task;
 import com.domain.tasks.repositories.ITaskRepository;
 
-public class TaskHandler implements ICommandHandler<CreateTaskCommand> {
+public class CreateTaskHandler implements
+        ICommandHandler<CreateTaskCommand> {
     private final IUserRepository _userRepository;
     private final ITaskRepository _taskRepository;
 
-    public TaskHandler(
+    public CreateTaskHandler(
             IUserRepository userRepository,
             ITaskRepository taskRepository)
     {
