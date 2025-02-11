@@ -1,21 +1,38 @@
 package com.domain.tasks.entities;
 
 import com.domain.identity.entities.User;
-import com.domain.shared.entities.Entity;
+import com.domain.shared.entities.BaseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
-public class Task extends Entity {
+@Entity
+@Table(name = "tasks")
+public class Task extends BaseEntity {
+
     @NotBlank(message = "O título não pode estar vazio")
     @Size(min = 3, max = 100, message = "O título deve ter entre 3 e 100 caracteres")
+    @Column(nullable = false)
     private String title;
+
     @Size(max = 500, message = "O título deve ter no máximo 500 caracteres")
+    @Column(nullable = true)
     private String description;
+
+    @Column(nullable = false)
     private LocalDateTime createdDate;
+
+    @Column(nullable = false)
     private LocalDateTime updatedDate;
+
+    @Column(nullable = false)
     private boolean isComplete;
+
+    @Column(nullable = false)
     private User user;
 
     public Task(
